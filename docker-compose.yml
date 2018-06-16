@@ -1,0 +1,20 @@
+version: "3"
+services:
+  knockd:
+    image: registry.gitlab.com/aristarkh87/docker-knockd
+    network_mode: "host"
+    privileged: true
+    volumes:
+      - ./knockd.conf:/etc/knockd.conf
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+      - KNOCKD_PORTS
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./www:/var/www/html/
+    restart: always
