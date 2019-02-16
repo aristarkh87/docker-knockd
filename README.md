@@ -6,8 +6,8 @@ Knockd is a port-knock server. It listens to all traffic on an ethernet (or PPP)
 ## Quick Start
 
 ```
-docker run -v "$(pwd)/knockd.conf":/etc/knockd.conf -d --network host --privileged registry.gitlab.com/aristarkh87/docker-knockd/knockd
-docker run -v "$(pwd)/conf.d":/etc/nginx/conf.d -v "$(pwd)/www:/var/www/html/" -d -p 80:80 -p $knockd_ports registry.gitlab.com/aristarkh87/docker-knockd/nginx
+docker run -v "$(pwd)/knockd.conf":/etc/knockd.conf -d --network host --privileged aristarkh87/docker-knockd/knockd
+docker run -v "$(pwd)/conf.d":/etc/nginx/conf.d -v "$(pwd)/www:/var/www/html/" -d -p 80:80 -p $knockd_ports aristarkh87/docker-knockd/nginx
 ```
 
 ## Up and running
